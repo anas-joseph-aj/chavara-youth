@@ -1,0 +1,363 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <meta name="theme-color" content="#123f2d" />
+    <title>Event Guidelines | YUVA</title>
+    <link rel="icon" href="images/logo1.jpg" type="image/jpeg" />
+    <link rel="stylesheet" href="site-header.css" />
+    <link rel="stylesheet" href="luxury-theme.css" />
+    <style>
+      :root {
+        --green: #164a35;
+        --green-dark: #103a2a;
+        --gold: #c49a3a;
+        --gold-light: #edcf7b;
+        --ink: #22332c;
+        --muted: #68766e;
+        --paper: #f7f8f5;
+        --serif: Georgia, "Times New Roman", serif;
+        --sans: "Aptos", "Segoe UI", Arial, sans-serif;
+      }
+
+      * { box-sizing: border-box; }
+      body { margin: 0; color: var(--ink); background: var(--paper); font-family: var(--sans); }
+      a { color: inherit; text-decoration: none; }
+      button { font: inherit; }
+      .container { width: min(1160px, calc(100% - 48px)); margin-inline: auto; }
+      .icon { width: 18px; height: 18px; fill: none; stroke: currentColor; stroke-linecap: round; stroke-linejoin: round; stroke-width: 1.8; }
+
+      .guidelines-hero {
+        position: relative;
+        min-height: 390px;
+        display: flex;
+        align-items: flex-end;
+        overflow: hidden;
+        color: #fff;
+        background:
+          linear-gradient(90deg, rgb(8 44 29 / 94%), rgb(8 44 29 / 58%)),
+          url("images/IMG_7944.jpg") center 42% / cover;
+      }
+
+      .guidelines-hero::after {
+        position: absolute;
+        right: 0;
+        bottom: 0;
+        width: 38%;
+        height: 4px;
+        background: var(--gold);
+        content: "";
+      }
+
+      .hero-content { position: relative; z-index: 1; padding: 76px 0 58px; }
+      .breadcrumbs { margin-bottom: 22px; color: #dfe9e2; font-size: 13px; }
+      .breadcrumbs a { color: var(--gold-light); }
+      .breadcrumbs span { margin: 0 8px; opacity: .65; }
+      .event-kicker {
+        display: inline-flex;
+        align-items: center;
+        gap: 10px;
+        margin-bottom: 13px;
+        color: var(--gold-light);
+        font-size: 11px;
+        font-weight: 800;
+        letter-spacing: .16em;
+        text-transform: uppercase;
+      }
+      .event-kicker::before { width: 28px; height: 1px; background: currentColor; content: ""; }
+      .hero-content h1 {
+        margin: 0;
+        max-width: 760px;
+        font-family: var(--serif);
+        font-size: clamp(48px, 7vw, 78px);
+        font-weight: 400;
+        line-height: 1;
+        letter-spacing: -.035em;
+      }
+      .hero-content p {
+        max-width: 720px;
+        margin: 18px 0 0;
+        color: #e6eee8;
+        font-size: 17px;
+        line-height: 1.7;
+      }
+
+      .guideline-main { padding: 64px 0 92px; }
+      .guideline-layout {
+        display: grid;
+        grid-template-columns: minmax(0, 1fr) 300px;
+        align-items: start;
+        gap: 34px;
+      }
+      .guideline-content {
+        border: 1px solid #e2e8e2;
+        background: #fff;
+        box-shadow: 0 18px 50px rgb(27 55 40 / 7%);
+      }
+      .guideline-section { display: grid; grid-template-columns: 150px 1fr; gap: 22px; padding: 34px 38px; border-bottom: 1px solid #edf0ec; }
+      .guideline-section:last-child { border-bottom: 0; }
+      .guideline-section h2 {
+        margin: 2px 0 0;
+        color: var(--green);
+        font-family: var(--serif);
+        font-size: 24px;
+        font-weight: 400;
+        line-height: 1.25;
+      }
+      .guideline-section p { margin: 0 0 14px; color: var(--muted); line-height: 1.85; }
+      .guideline-section p:last-child { margin-bottom: 0; }
+      .guideline-section ul { margin: 0; padding: 0; list-style: none; }
+      .guideline-section li {
+        position: relative;
+        margin: 0 0 12px;
+        padding-left: 20px;
+        color: var(--muted);
+        line-height: 1.75;
+      }
+      .guideline-section li::before {
+        position: absolute;
+        top: .72em;
+        left: 0;
+        width: 7px;
+        height: 7px;
+        border: 1px solid var(--gold);
+        transform: rotate(45deg);
+        content: "";
+      }
+
+      .event-sidebar { position: sticky; top: 118px; }
+      .event-summary {
+        overflow: hidden;
+        border: 1px solid #e2e8e2;
+        background: #fff;
+        box-shadow: 0 18px 50px rgb(27 55 40 / 7%);
+      }
+      .summary-head { padding: 22px 24px; color: #fff; background: var(--green); }
+      .summary-head span { color: var(--gold-light); font-size: 10px; font-weight: 800; letter-spacing: .14em; text-transform: uppercase; }
+      .summary-head h2 { margin: 6px 0 0; font-family: var(--serif); font-size: 25px; font-weight: 400; }
+      .summary-list { margin: 0; padding: 8px 24px 18px; }
+      .summary-list div { display: grid; grid-template-columns: 82px 1fr; gap: 10px; padding: 13px 0; border-bottom: 1px solid #edf0ec; }
+      .summary-list div:last-child { border-bottom: 0; }
+      .summary-list dt { color: #8a958e; font-size: 11px; font-weight: 800; letter-spacing: .08em; text-transform: uppercase; }
+      .summary-list dd { margin: 0; color: var(--ink); font-size: 13px; font-weight: 650; }
+      .sidebar-actions { display: grid; gap: 10px; margin-top: 14px; }
+      .action-button {
+        display: flex;
+        min-height: 48px;
+        align-items: center;
+        justify-content: center;
+        gap: 9px;
+        border: 1px solid var(--green);
+        color: #fff;
+        background: var(--green);
+        font-size: 13px;
+        font-weight: 800;
+      }
+      .action-button.secondary { color: var(--green); background: #fff; }
+      .action-button:hover { filter: brightness(1.06); }
+      .action-button .icon { width: 16px; height: 16px; }
+
+      @media (max-width: 900px) {
+        .guideline-layout { grid-template-columns: 1fr; }
+        .event-sidebar { position: static; }
+      }
+      @media (max-width: 600px) {
+        .container { width: min(100% - 30px, 1160px); }
+        .guidelines-hero { min-height: 330px; }
+        .hero-content { padding: 58px 0 42px; }
+        .guideline-main { padding: 38px 0 60px; }
+        .guideline-section { grid-template-columns: 1fr; gap: 12px; padding: 26px 22px; }
+      }
+    </style>
+  </head>
+  <body>
+    <svg xmlns="http://www.w3.org/2000/svg" aria-hidden="true" style="position:absolute;width:0;height:0;overflow:hidden">
+      <symbol id="icon-arrow" viewBox="0 0 24 24"><path d="M5 12h14M13 5l7 7-7 7"/></symbol>
+      <symbol id="icon-download" viewBox="0 0 24 24"><path d="M12 3v12m0 0 5-5m-5 5-5-5M5 21h14"/></symbol>
+    </svg>
+
+    <header class="main-nav">
+      <div class="container nav-inner">
+        <a class="brand" href="index.html" aria-label="Chavara Youth home">
+          <img class="brand-logo" src="images/logo.png" alt="Chavara Youth logo" />
+        </a>
+        <nav class="nav-links" aria-label="Main navigation">
+          <a href="index.html">Home</a>
+          <a href="about.html">About</a>
+          <a href="administration.html">Administration</a>
+          <a href="yuva.html" aria-current="page">Yuva</a>
+          <a href="gallery.html">Gallery</a>
+          <a href="contact.html">Contact</a>
+        </nav>
+      </div>
+    </header>
+
+    <main>
+      <section class="guidelines-hero">
+        <div class="container hero-content">
+          <nav class="breadcrumbs" aria-label="Breadcrumb">
+            <a href="yuva.html">YUVA</a><span>/</span><a href="yuva.html#events">Events</a><span>/</span><b id="breadcrumb-event">Guidelines</b>
+          </nav>
+          <p class="event-kicker" id="event-kicker">Event guidelines</p>
+          <h1 id="event-title">Event Name</h1>
+          <p id="event-intro"></p>
+        </div>
+      </section>
+
+      <section class="guideline-main">
+        <div class="container guideline-layout">
+          <article class="guideline-content" aria-label="Event guidelines">
+            <div class="guideline-section">
+              <h2>About the event</h2>
+              <div id="event-description"></div>
+            </div>
+            <div class="guideline-section">
+              <h2>General requirements</h2>
+              <ul id="event-requirements"></ul>
+            </div>
+            <div class="guideline-section">
+              <h2>Presentation guidelines</h2>
+              <ul id="event-presentation"></ul>
+            </div>
+            <div class="guideline-section">
+              <h2>Evaluation</h2>
+              <ul id="event-evaluation"></ul>
+            </div>
+          </article>
+
+          <aside class="event-sidebar">
+            <div class="event-summary">
+              <div class="summary-head">
+                <span>YUVA 2024 archive</span>
+                <h2 id="summary-title">Event</h2>
+              </div>
+              <dl class="summary-list">
+                <div><dt>Category</dt><dd id="summary-category"></dd></div>
+                <div><dt>Participation</dt><dd id="summary-participation"></dd></div>
+                <div><dt>Theme</dt><dd>Youth and the Church</dd></div>
+              </dl>
+            </div>
+            <div class="sidebar-actions">
+              <a class="action-button" href="YUVA-BROCHURE.pdf" download="YUVA-BROCHURE.pdf">
+                <svg class="icon" aria-hidden="true"><use href="#icon-download" /></svg> Download brochure
+              </a>
+              <a class="action-button secondary" href="yuva.html#events">
+                <svg class="icon" aria-hidden="true"><use href="#icon-arrow" /></svg> Back to all events
+              </a>
+            </div>
+          </aside>
+        </div>
+      </section>
+    </main>
+
+    <script>
+      const events = {
+        mime: {
+          title: "MIME",
+          kicker: "Cultural competition · Group",
+          intro: "Tell a meaningful story without words through expression, movement, teamwork, and creative staging.",
+          category: "Cultural · Group",
+          participation: "Team entry",
+          description: [
+            "Mime is a group performance that communicates a story or message entirely through gesture, facial expression, body movement, and coordinated staging.",
+            "Presentations should remain clear, purposeful, and suitable for a shared audience."
+          ],
+          requirements: [
+            "The performance must communicate its theme without dialogue or verbal narration.",
+            "Costumes and props must support the story and be suitable for the venue.",
+            "Music may be used only as an accompaniment and must not replace the visual performance.",
+            "Follow the published brochure for the current team size and duration limits."
+          ],
+          presentation: [
+            "Arrange a coherent beginning, development, and conclusion.",
+            "Coordinate movement clearly so that every team member contributes to the story.",
+            "Avoid unsafe actions, prohibited props, or disruptive staging.",
+            "Complete the performance within the time allowed for the edition."
+          ],
+          evaluation: [
+            "Clarity and coherence of the communicated message.",
+            "Expression, coordination, timing, and stage discipline.",
+            "Creativity of movement, costume, props, and overall presentation.",
+            "Appropriate treatment of the YUVA theme and audience."
+          ]
+        },
+        dance: {
+          title: "Group Dance",
+          kicker: "Cultural competition · Group",
+          intro: "Present a coordinated cultural or contemporary dance celebrating creativity, unity, and faith.",
+          category: "Cultural · Group",
+          participation: "Team entry",
+          description: [
+            "Group Dance invites teams to present a choreographed performance with clarity, rhythm, visual appeal, and a unified stage presence.",
+            "The performance may draw from cultural, classical, contemporary, or creative dance traditions."
+          ],
+          requirements: [
+            "The team must present as one coherent performance.",
+            "Music, costume, and props must be appropriate for a youth and faith-based audience.",
+            "Recorded music must be prepared and submitted according to the published rules.",
+            "Follow the brochure for current team size, duration, and submission requirements."
+          ],
+          presentation: [
+            "Use formations and transitions that are safe and visible from the audience.",
+            "Maintain rhythm, spatial awareness, coordination, and stage discipline.",
+            "Avoid unsafe stunts or actions that may damage the venue or equipment.",
+            "Finish within the allotted performance period."
+          ],
+          evaluation: [
+            "Choreography, creativity, and interpretation.",
+            "Coordination, synchronization, timing, and precision.",
+            "Costume, music, presentation, and overall visual effect.",
+            "Appropriate and respectful treatment of the theme."
+          ]
+        },
+        quiz: {
+          title: "Bible Quiz",
+          kicker: "Literary competition · Individual",
+          intro: "Celebrate your knowledge of Scripture through a thoughtful and engaging individual quiz.",
+          category: "Literary · Individual",
+          participation: "Individual entry",
+          description: [
+            "Bible Quiz tests participants' knowledge of Scripture, biblical events, characters, teachings, and key themes.",
+            "The competition encourages careful study, accurate responses, and a deeper appreciation of the Word of God."
+          ],
+          requirements: [
+            "The event is open to individual participants unless the published brochure specifies otherwise.",
+            "Participants must follow the announced round structure and answering procedure.",
+            "Only the question text and official response format may be used during the quiz.",
+            "Consult the brochure for the current syllabus, rounds, and registration details."
+          ],
+          presentation: [
+            "Respond clearly within the time allowed for each question.",
+            "Follow the moderator's instructions and avoid prompting or consultation.",
+            "Remain available for the complete round in which you are participating.",
+            "Use the official answer method announced for that edition."
+          ],
+          evaluation: [
+            "Accuracy of responses.",
+            "Speed and completeness where required by the round.",
+            "Knowledge of the prescribed biblical passages and themes.",
+            "Fair conduct and adherence to the quiz instructions."
+          ]
+        }
+      };
+
+      const key = new URLSearchParams(window.location.search).get("event");
+      const event = events[key] || events.mime;
+
+      document.title = `${event.title} Guidelines | YUVA`;
+      document.querySelector("#event-title").textContent = event.title;
+      document.querySelector("#summary-title").textContent = event.title;
+      document.querySelector("#breadcrumb-event").textContent = event.title;
+      document.querySelector("#event-kicker").textContent = event.kicker;
+      document.querySelector("#event-intro").textContent = event.intro;
+      document.querySelector("#summary-category").textContent = event.category;
+      document.querySelector("#summary-participation").textContent = event.participation;
+
+      document.querySelector("#event-description").innerHTML = event.description.map((text) => `<p>${text}</p>`).join("");
+      ["requirements", "presentation", "evaluation"].forEach((field) => {
+        document.querySelector(`#event-${field}`).innerHTML = event[field].map((text) => `<li>${text}</li>`).join("");
+      });
+    </script>
+  </body>
+</html>

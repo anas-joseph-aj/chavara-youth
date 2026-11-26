@@ -1,0 +1,1028 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <meta name="theme-color" content="#123f2d" />
+    <title>Our Gallery | Chavara Youth</title>
+    <link rel="icon" href="images/logo1.jpg" type="image/jpeg" />
+    <meta name="description" content="Memories, moments, and celebrations of Chavara Youth." />
+    <link rel="stylesheet" href="site-header.css" />
+    <link rel="stylesheet" href="luxury-theme.css" />
+    <script src="luxury-effects.js" defer></script>
+    <style>
+      :root {
+        --green: #164a35;
+        --green-dark: #123f2d;
+        --green-soft: #edf4ef;
+        --gold: #c49a3a;
+        --gold-light: #edcf7b;
+        --text: #24352b;
+        --muted: #64736a;
+        --content: 1160px;
+        font-family: "Segoe UI", Arial, sans-serif;
+        color: var(--text);
+        background: #fff;
+        font-synthesis: none;
+        text-rendering: optimizeLegibility;
+      }
+
+      * {
+        box-sizing: border-box;
+      }
+
+      body {
+        min-width: 320px;
+        margin: 0;
+      }
+
+      a {
+        color: inherit;
+        text-decoration: none;
+      }
+
+      button,
+      select {
+        font: inherit;
+      }
+
+      .icon {
+        width: 18px;
+        height: 18px;
+        fill: none;
+        stroke: currentColor;
+        stroke-linecap: round;
+        stroke-linejoin: round;
+        stroke-width: 1.8;
+      }
+
+      .gallery-hero {
+        position: relative;
+        display: grid;
+        min-height: 300px;
+        align-items: center;
+        overflow: hidden;
+        color: #fff;
+        background:
+          linear-gradient(90deg, rgb(13 52 36 / 92%), rgb(13 52 36 / 52%)),
+          url("images/Onam (1).JPG") center 48% / cover;
+      }
+
+      .hero-copy {
+        position: relative;
+        z-index: 1;
+        padding-block: 48px;
+      }
+
+      .eyebrow {
+        margin: 0 0 11px;
+        color: var(--gold-light);
+        font-size: 12px;
+        font-weight: 700;
+        letter-spacing: 0.16em;
+        text-transform: uppercase;
+      }
+
+      h1,
+      h2,
+      h3,
+      p {
+        margin-top: 0;
+      }
+
+      .gallery-hero h1 {
+        margin-bottom: 12px;
+        font-family: Georgia, "Times New Roman", serif;
+        font-size: clamp(40px, 5vw, 58px);
+        font-weight: 500;
+      }
+
+      .gallery-hero p:last-child {
+        max-width: 650px;
+        margin-bottom: 0;
+        color: #e4eee6;
+        font-size: 16px;
+        line-height: 1.7;
+      }
+
+      .breadcrumbs {
+        margin-top: 23px;
+        color: #e4eee6;
+        font-size: 13px;
+      }
+
+      .breadcrumbs span {
+        padding-inline: 8px;
+        color: var(--gold-light);
+      }
+
+      .gallery-section {
+        min-height: 460px;
+        padding: 66px 0 84px;
+        background: #f8faf8;
+      }
+
+      .section-heading {
+        max-width: 760px;
+        margin: 0 auto 34px;
+        text-align: center;
+      }
+
+      .section-heading h2 {
+        margin-bottom: 10px;
+        color: var(--green-dark);
+        font-family: Georgia, "Times New Roman", serif;
+        font-size: clamp(30px, 4vw, 40px);
+        font-weight: 500;
+      }
+
+      .section-heading > p:last-child {
+        margin-bottom: 0;
+        color: var(--muted);
+        line-height: 1.7;
+      }
+
+      .filters {
+        display: grid;
+        gap: 20px;
+        margin-bottom: 28px;
+        padding: 20px;
+        border: 1px solid #e8eee8;
+        border-radius: 10px;
+        background: #fff;
+      }
+
+      .filter-group {
+        display: flex;
+        align-items: center;
+        flex-wrap: wrap;
+        gap: 9px;
+      }
+
+      .filter-label {
+        min-width: 54px;
+        margin: 0 5px 0 0;
+        color: var(--green-dark);
+        font-size: 13px;
+        font-weight: 700;
+      }
+
+      .filter-button {
+        min-height: 38px;
+        padding: 7px 14px;
+        border: 1px solid #dfe7df;
+        border-radius: 999px;
+        color: #45554b;
+        background: #fff;
+        font-size: 13px;
+        font-weight: 600;
+        cursor: pointer;
+        transition: color 160ms ease, border-color 160ms ease, background 160ms ease;
+      }
+
+      .filter-button:hover,
+      .filter-button[aria-pressed="true"] {
+        border-color: var(--green);
+        color: #fff;
+        background: var(--green);
+      }
+
+      .event-select {
+        min-width: min(250px, 100%);
+        min-height: 40px;
+        padding: 8px 34px 8px 12px;
+        border: 1px solid #dfe7df;
+        border-radius: 5px;
+        color: var(--text);
+        background-color: #fff;
+      }
+
+      .archive-note {
+        margin: 0 0 24px;
+        padding: 13px 15px;
+        border-left: 3px solid var(--gold);
+        color: #54645a;
+        background: #fffaf0;
+        font-size: 13px;
+        line-height: 1.65;
+      }
+
+      .photo-grid {
+        display: grid;
+        grid-template-columns: repeat(3, minmax(0, 1fr));
+        gap: 22px;
+      }
+
+      .photo-card {
+        position: relative;
+        display: block;
+        aspect-ratio: 4 / 3;
+        overflow: hidden;
+        border-radius: 8px;
+        background: #dfe8df;
+        box-shadow: 0 10px 24px rgb(24 54 37 / 9%);
+        cursor: zoom-in;
+        isolation: isolate;
+      }
+
+      .photo-card[hidden] {
+        display: none;
+      }
+
+      .photo-card img {
+        display: block;
+        width: 100%;
+        height: 100%;
+        object-fit: cover;
+        transition: transform 350ms ease;
+      }
+
+      .photo-card:hover img,
+      .photo-card:focus-visible img {
+        transform: scale(1.045);
+      }
+
+      .empty-state {
+        margin: 25px 0 0;
+        padding: 30px 20px;
+        border: 1px dashed #cbd9cc;
+        border-radius: 8px;
+        color: var(--muted);
+        background: #fff;
+        text-align: center;
+        line-height: 1.7;
+      }
+
+      .empty-state[hidden] {
+        display: none;
+      }
+
+      .load-more-wrap {
+        display: flex;
+        justify-content: center;
+        margin-top: 32px;
+      }
+
+      .load-more,
+      .lightbox-button {
+        display: inline-flex;
+        min-height: 44px;
+        align-items: center;
+        justify-content: center;
+        gap: 8px;
+        padding: 10px 18px;
+        border: 1px solid var(--gold);
+        border-radius: 5px;
+        color: #173b2a;
+        background: #e4bd5e;
+        font-size: 14px;
+        font-weight: 700;
+        cursor: pointer;
+        transition: background 160ms ease, transform 160ms ease;
+      }
+
+      .load-more:hover,
+      .lightbox-button:hover {
+        background: #f0d17d;
+        transform: translateY(-1px);
+      }
+
+      .load-more[hidden] {
+        display: none;
+      }
+
+      .lightbox {
+        width: min(100% - 32px, 1120px);
+        max-width: 1120px;
+        max-height: calc(100dvh - 32px);
+        padding: 0;
+        overflow: hidden;
+        border: 1px solid rgb(237 207 123 / 55%);
+        border-radius: 12px;
+        color: #fff;
+        background: #0b1c13;
+        box-shadow: 0 28px 90px rgb(0 0 0 / 55%);
+      }
+
+      .lightbox::backdrop {
+        background: rgb(8 20 13 / 82%);
+        backdrop-filter: blur(4px);
+      }
+
+      .lightbox-layout {
+        display: grid;
+        grid-template-rows: minmax(0, 1fr) auto;
+        max-height: calc(100dvh - 32px);
+      }
+
+      .lightbox-image-wrap {
+        position: relative;
+        display: grid;
+        min-height: 200px;
+        place-items: center;
+        overflow: hidden;
+        background:
+          radial-gradient(circle at center, rgb(255 255 255 / 4%), transparent 58%);
+        touch-action: pan-y;
+      }
+
+      .lightbox-image {
+        display: block;
+        width: 100%;
+        max-height: calc(100dvh - 170px);
+        object-fit: contain;
+        user-select: none;
+        -webkit-user-drag: none;
+      }
+
+      .lightbox-side-nav {
+        position: absolute;
+        top: 50%;
+        z-index: 2;
+        display: grid;
+        width: 48px;
+        height: 48px;
+        place-items: center;
+        border: 1px solid rgb(255 255 255 / 30%);
+        border-radius: 50%;
+        color: #fff;
+        background: rgb(9 32 21 / 82%);
+        box-shadow: 0 8px 24px rgb(0 0 0 / 24%);
+        cursor: pointer;
+        transform: translateY(-50%);
+        transition: background 160ms ease, border-color 160ms ease, transform 160ms ease;
+      }
+
+      .lightbox-side-nav:hover {
+        border-color: var(--gold-light);
+        background: var(--green);
+        transform: translateY(-50%) scale(1.04);
+      }
+
+      .lightbox-side-nav.previous {
+        left: 18px;
+      }
+
+      .lightbox-side-nav.next {
+        right: 18px;
+      }
+
+      .lightbox-side-nav .icon {
+        width: 20px;
+        height: 20px;
+      }
+
+      .lightbox-toolbar {
+        display: flex;
+        min-height: 82px;
+        align-items: center;
+        justify-content: space-between;
+        gap: 12px;
+        padding: 14px 18px;
+        border-top: 1px solid rgb(237 207 123 / 18%);
+        background: linear-gradient(90deg, #123f2d, #0f3525);
+      }
+
+      .lightbox-info {
+        min-width: 0;
+      }
+
+      .lightbox-info p {
+        margin: 0;
+        color: #d3ded5;
+        font-size: 12px;
+      }
+
+      .lightbox-meta {
+        display: flex;
+        align-items: center;
+        gap: 14px;
+      }
+
+      .lightbox-count {
+        min-width: 64px;
+        color: var(--gold-light);
+        font-size: 12px;
+        font-weight: 800;
+        letter-spacing: 0.12em;
+        text-align: right;
+        text-transform: uppercase;
+      }
+
+      .lightbox-controls {
+        display: flex;
+        flex: 0 0 auto;
+        gap: 8px;
+      }
+
+      .lightbox-button {
+        min-width: 42px;
+        min-height: 40px;
+        padding: 8px 11px;
+        border-color: rgb(237 207 123 / 65%);
+        border-radius: 6px;
+        color: #fff;
+        background: rgb(255 255 255 / 8%);
+      }
+
+      .lightbox-button:hover {
+        color: var(--green-dark);
+      }
+
+      .lightbox-button .icon {
+        width: 17px;
+        height: 17px;
+      }
+
+      .footer {
+        padding: 62px 0 0;
+        color: #f5f5ed;
+        background: var(--green-dark);
+      }
+
+      .footer-grid {
+        display: grid;
+        grid-template-columns: 1.15fr 1fr 0.8fr 1.15fr;
+        gap: clamp(25px, 4vw, 58px);
+        padding-bottom: 42px;
+      }
+
+      .footer-logo {
+        width: 150px;
+        height: 82px;
+        object-fit: contain;
+        object-position: left center;
+      }
+
+      .footer-tagline {
+        margin: 7px 0 18px;
+        color: var(--gold-light);
+        font-size: 13px;
+      }
+
+      .footer-copy {
+        max-width: 330px;
+        color: #d3ded5;
+        font-size: 13px;
+        line-height: 1.7;
+      }
+
+      .footer h2 {
+        margin: 12px 0 18px;
+        color: #fff;
+        font-size: 15px;
+      }
+
+      .footer-list {
+        display: grid;
+        gap: 12px;
+        margin: 0;
+        padding: 0;
+        color: #d3ded5;
+        font-size: 13px;
+        line-height: 1.6;
+        list-style: none;
+      }
+
+      .footer-list a:hover,
+      .footer-social a:hover {
+        color: var(--gold-light);
+      }
+
+      .footer-contact li {
+        display: flex;
+        align-items: flex-start;
+        gap: 9px;
+      }
+
+      .footer-list .icon {
+        width: 16px;
+        height: 16px;
+        flex: 0 0 auto;
+        margin-top: 2px;
+        color: var(--gold-light);
+      }
+
+      .footer-social {
+        display: flex;
+        gap: 14px;
+        margin-top: 20px;
+      }
+
+      .footer-social a {
+        display: inline-flex;
+        color: #fff;
+      }
+
+      .map-frame {
+        display: block;
+        width: 100%;
+        min-height: 190px;
+        border: 0;
+      }
+
+      .copyright {
+        padding: 17px 0 19px;
+        border-top: 1px solid rgb(255 255 255 / 16%);
+        color: #c4d3c5;
+        font-size: 12px;
+        text-align: center;
+      }
+
+      .copyright p {
+        margin: 0;
+      }
+
+      :focus-visible {
+        outline: 3px solid #edc65f;
+        outline-offset: 3px;
+      }
+
+      @media (max-width: 900px) {
+        .photo-grid {
+          grid-template-columns: repeat(2, minmax(0, 1fr));
+        }
+
+        .footer-grid {
+          grid-template-columns: repeat(2, minmax(0, 1fr));
+          gap: 32px;
+        }
+      }
+
+      @media (max-width: 600px) {
+        .gallery-hero {
+          min-height: 250px;
+        }
+
+        .gallery-section {
+          padding: 48px 0 60px;
+        }
+
+        .photo-grid {
+          grid-template-columns: 1fr;
+          gap: 16px;
+        }
+
+        .photo-card {
+          aspect-ratio: 1.18;
+        }
+
+        .filters {
+          padding: 15px;
+        }
+
+        .filter-group {
+          gap: 7px;
+        }
+
+        .filter-label {
+          flex-basis: 100%;
+        }
+
+        .filter-button {
+          min-height: 40px;
+          padding-inline: 12px;
+        }
+
+        .event-select {
+          width: 100%;
+        }
+
+        .footer-grid {
+          grid-template-columns: 1fr;
+          gap: 28px;
+        }
+
+        .lightbox {
+          width: calc(100% - 20px);
+          max-height: calc(100dvh - 20px);
+        }
+
+        .lightbox-layout {
+          max-height: calc(100dvh - 20px);
+        }
+
+        .lightbox-image {
+          max-height: calc(100dvh - 160px);
+        }
+
+        .lightbox-toolbar {
+          align-items: flex-start;
+          flex-direction: column;
+          padding: 12px;
+        }
+
+        .lightbox-meta {
+          width: 100%;
+          justify-content: space-between;
+        }
+
+        .lightbox-count {
+          order: 2;
+          text-align: left;
+        }
+
+        .lightbox-side-nav {
+          display: none;
+        }
+
+        .lightbox-controls {
+          width: 100%;
+        }
+
+        .lightbox-button {
+          flex: 1 1 auto;
+        }
+      }
+
+      @media (prefers-reduced-motion: reduce) {
+        *,
+        *::before,
+        *::after {
+          scroll-behavior: auto !important;
+          transition-duration: 0.01ms !important;
+          animation-duration: 0.01ms !important;
+          animation-iteration-count: 1 !important;
+        }
+      }
+    </style>
+  </head>
+  <body>
+    <svg xmlns="http://www.w3.org/2000/svg" aria-hidden="true" style="position: absolute; width: 0; height: 0; overflow: hidden">
+      <symbol id="icon-phone" viewBox="0 0 24 24"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.8 19.8 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6A19.8 19.8 0 0 1 2.12 4.2 2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72c.12.96.35 1.9.69 2.8a2 2 0 0 1-.45 2.11L8.08 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45c.9.34 1.84.57 2.8.69a2 2 0 0 1 1.74 2.04Z"/></symbol>
+      <symbol id="icon-mail" viewBox="0 0 24 24"><rect x="3" y="5" width="18" height="14" rx="2"/><path d="m3 7 9 6 9-6"/></symbol>
+      <symbol id="icon-pin" viewBox="0 0 24 24"><path d="M20 10c0 5-8 12-8 12S4 15 4 10a8 8 0 1 1 16 0Z"/><circle cx="12" cy="10" r="2.5"/></symbol>
+      <symbol id="icon-menu" viewBox="0 0 24 24"><path d="M4 6h16M4 12h16M4 18h16"/></symbol>
+      <symbol id="icon-close" viewBox="0 0 24 24"><path d="m6 6 12 12M18 6 6 18"/></symbol>
+      <symbol id="icon-arrow" viewBox="0 0 24 24"><path d="M5 12h14M13 5l7 7-7 7"/></symbol>
+      <symbol id="icon-left" viewBox="0 0 24 24"><path d="M19 12H5M12 19l-7-7 7-7"/></symbol>
+      <symbol id="icon-right" viewBox="0 0 24 24"><path d="M5 12h14m-7-7 7 7-7 7"/></symbol>
+      <symbol id="icon-facebook" viewBox="0 0 24 24"><path d="M14 8h3V4h-3a5 5 0 0 0-5 5v3H6v4h3v5h4v-5h3l1-4h-4V9a1 1 0 0 1 1-1Z"/></symbol>
+      <symbol id="icon-instagram" viewBox="0 0 24 24"><rect x="3" y="3" width="18" height="18" rx="5"/><circle cx="12" cy="12" r="4"/><path d="M17.5 6.5h.01"/></symbol>
+      <symbol id="icon-youtube" viewBox="0 0 24 24"><path d="M22 12s0-4-1-5-9-1-9-1-8 0-9 1-1 5-1 5 0 4 1 5 9 1 9 1 8 0 9-1 1-5 1-5Z"/><path d="m10 9 5 3-5 3z"/></symbol>
+    </svg>
+
+    <div class="contact-bar">
+      <div class="container contact-inner">
+        <div class="contact-items">
+          <a class="contact-item" href="tel:+919747118825"><svg class="icon" aria-hidden="true"><use href="#icon-phone" /></svg><span>+91 97471 18825</span></a>
+          <a class="contact-item email" href="mailto:chavarayouth@kristujayanti.com"><svg class="icon" aria-hidden="true"><use href="#icon-mail" /></svg><span>chavarayouth@kristujayanti.com</span></a>
+          <a class="contact-item address" href="https://maps.google.com/?q=Kristu+Jayanti+Deemed+to+be+University+Bengaluru" target="_blank" rel="noreferrer"><svg class="icon" aria-hidden="true"><use href="#icon-pin" /></svg><span>Kristu Jayanti Deemed to be University, Bengaluru</span></a>
+        </div>
+        <div class="social-list" aria-label="Social media">
+          <a href="https://www.facebook.com/chavarayouth" target="_blank" rel="noreferrer" aria-label="Chavara Youth on Facebook"><svg class="icon" aria-hidden="true"><use href="#icon-facebook" /></svg></a>
+          <a href="https://www.instagram.com/chavara_youth/" target="_blank" rel="noreferrer" aria-label="Chavara Youth on Instagram"><svg class="icon" aria-hidden="true"><use href="#icon-instagram" /></svg></a>
+          <a href="https://www.youtube.com/results?search_query=Chavara+Youth+Kristu+Jayanti" target="_blank" rel="noreferrer" aria-label="Find Chavara Youth on YouTube"><svg class="icon" aria-hidden="true"><use href="#icon-youtube" /></svg></a>
+        </div>
+      </div>
+    </div>
+
+    <header class="main-nav">
+      <div class="container nav-inner">
+        <a class="brand" href="index.html" aria-label="Chavara Youth home">
+          <img class="brand-logo" src="images/logo.png" alt="Chavara Youth logo" />
+        </a>
+        <nav class="nav-links" id="primary-navigation" aria-label="Main navigation">
+          <a href="index.html">Home</a>
+          <a href="about.html">About</a>
+          <a href="administration.html">Administration</a>
+          <a href="yuva.html">Yuva</a>
+          <a href="gallery.html" aria-current="page">Gallery</a>
+          <a href="contact.html">Contact</a>
+        </nav>
+        <div class="nav-actions">
+          <button class="menu-toggle" type="button" aria-label="Open menu" aria-expanded="false" aria-controls="primary-navigation"><svg class="icon" aria-hidden="true"><use href="#icon-menu" /></svg></button>
+        </div>
+      </div>
+    </header>
+
+    <main>
+      <section class="gallery-hero" aria-labelledby="page-title">
+        <div class="container hero-copy">
+      <p class="eyebrow">Moments across the years</p>
+          <h1 id="page-title">Our Gallery</h1>
+          <p>Memories, moments, and celebrations of Chavara Youth.</p>
+          <nav class="breadcrumbs" aria-label="Breadcrumb"><a href="index.html">Home</a><span aria-hidden="true">/</span><span aria-current="page">Gallery</span></nav>
+        </div>
+      </section>
+
+      <section class="gallery-section" aria-labelledby="gallery-heading">
+        <div class="container">
+          <div class="section-heading">
+            <p class="eyebrow">Our community in pictures</p>
+            <h2 id="gallery-heading">Moments to remember</h2>
+            <p>Browse Chavara Youth gatherings, celebrations, and service.</p>
+          </div>
+
+          <div class="filters" aria-label="Gallery filters">
+            <div class="filter-group" role="group" aria-label="Filter photos by year">
+              <p class="filter-label">Year</p>
+              <button class="filter-button year-filter" type="button" data-year="all" aria-pressed="true">All years</button>
+              <button class="filter-button year-filter" type="button" data-year="2027" aria-pressed="false">2027</button>
+              <button class="filter-button year-filter" type="button" data-year="2026" aria-pressed="false">2026</button>
+              <button class="filter-button year-filter" type="button" data-year="2025" aria-pressed="false">2025</button>
+              <button class="filter-button year-filter" type="button" data-year="202" aria-pressed="false">2024</button>
+              <button class="filter-button year-filter" type="button" data-year="unknown" aria-pressed="false">Year not provided</button>
+            </div>
+            <div class="filter-group">
+              <label class="filter-label" for="event-filter">Event</label>
+              <select class="event-select" id="event-filter" aria-label="Filter photos by event">
+                <option value="all">All Events</option>
+              </select>
+            </div>
+          </div>
+
+          
+
+          <div class="photo-grid" id="photo-grid" aria-live="polite"></div>
+
+          <p class="empty-state" id="empty-state" hidden>No photos match these filters. There are no photos with verified dates for this year yet.</p>
+          <div class="load-more-wrap"><button class="load-more" id="load-more" type="button">Load more photos</button></div>
+        </div>
+      </section>
+
+      <dialog class="lightbox" id="lightbox" aria-label="Photo preview">
+        <div class="lightbox-layout">
+          <div class="lightbox-image-wrap" id="lightbox-swipe-area">
+            <img class="lightbox-image" id="lightbox-image" alt="" />
+            <button class="lightbox-side-nav previous" id="lightbox-side-previous" type="button" aria-label="Previous photo">
+              <svg class="icon" aria-hidden="true"><use href="#icon-left" /></svg>
+            </button>
+            <button class="lightbox-side-nav next" id="lightbox-side-next" type="button" aria-label="Next photo">
+              <svg class="icon" aria-hidden="true"><use href="#icon-right" /></svg>
+            </button>
+          </div>
+          <div class="lightbox-toolbar">
+            <div class="lightbox-info">
+              <p id="lightbox-date"></p>
+            </div>
+            <div class="lightbox-meta">
+              <span class="lightbox-count" id="lightbox-count" aria-live="polite"></span>
+              <div class="lightbox-controls">
+                <button class="lightbox-button" id="lightbox-previous" type="button" aria-label="Previous photo"><svg class="icon" aria-hidden="true"><use href="#icon-left" /></svg><span>Previous</span></button>
+                <button class="lightbox-button" id="lightbox-next" type="button" aria-label="Next photo"><span>Next</span><svg class="icon" aria-hidden="true"><use href="#icon-right" /></svg></button>
+                <button class="lightbox-button" id="lightbox-close" type="button" aria-label="Close photo preview"><svg class="icon" aria-hidden="true"><use href="#icon-close" /></svg><span>Close</span></button>
+              </div>
+            </div>
+          </div>
+        </div>
+      </dialog>
+    </main>
+
+    <footer class="footer">
+      <div class="container footer-grid">
+        <section>
+          <a href="index.html" aria-label="Chavara Youth home"><img class="footer-logo" src="images/logo1.jpg" alt="Chavara Youth logo" /></a>
+          <p class="footer-copy">A community of young people growing in faith, building fellowship, and serving others.</p>
+          <div class="footer-social" aria-label="Chavara Youth social media">
+            <a href="https://www.facebook.com/chavarayouth" target="_blank" rel="noreferrer" aria-label="Facebook"><svg class="icon" aria-hidden="true"><use href="#icon-facebook" /></svg></a>
+            <a href="https://www.instagram.com/chavara_youth/" target="_blank" rel="noreferrer" aria-label="Instagram"><svg class="icon" aria-hidden="true"><use href="#icon-instagram" /></svg></a>
+            <a href="https://www.youtube.com/results?search_query=Chavara+Youth+Kristu+Jayanti" target="_blank" rel="noreferrer" aria-label="YouTube"><svg class="icon" aria-hidden="true"><use href="#icon-youtube" /></svg></a>
+          </div>
+        </section>
+        <section>
+          <h2>Quick links</h2>
+          <ul class="footer-list">
+            <li><a href="about.html">About Us</a></li>
+            <li><a href="yuva.html">Yuva</a></li>
+            <li><a href="administration.html">Administration</a></li>
+            <li><a href="gallery.html" aria-current="page">Gallery</a></li>
+            <li><a href="contact.html">Contact</a></li>
+          </ul>
+        </section>
+        <section>
+          <h2>Contact information</h2>
+          <ul class="footer-list footer-contact">
+            <li><svg class="icon" aria-hidden="true"><use href="#icon-phone" /></svg><a href="tel:+919747118825">+91 97471 18825</a></li>
+            <li><svg class="icon" aria-hidden="true"><use href="#icon-mail" /></svg><a href="mailto:chavarayouth@kristujayanti.com">chavarayouth@kristujayanti.com</a></li>
+            <li><svg class="icon" aria-hidden="true"><use href="#icon-pin" /></svg><span>Kristu Jayanti Deemed to be University,<br />K. Narayanapura, Kothanur P.O.,<br />Bengaluru – 560077</span></li>
+          </ul>
+        </section>
+        <section>
+          <h2>Find us</h2>
+          <iframe
+            class="map-frame"
+            title="Map showing Kristu Jayanti Deemed to be University"
+            src="https://www.google.com/maps?q=Kristu%20Jayanti%20College%20Autonomous%2C%20K.%20Narayanapura%2C%20Kothanur%20P.O.%2C%20Bengaluru%20560077&output=embed"
+            loading="lazy"
+            referrerpolicy="no-referrer-when-downgrade"
+          ></iframe>
+        </section>
+      </div>
+      <div class="copyright"><div class="container"><p>© Copyrights 2026-27 Chavara Youth All rights reserved.</p></div></div>
+    </footer>
+
+    <script>
+      const menuToggle = document.querySelector(".menu-toggle");
+      const navigation = document.querySelector("#primary-navigation");
+      const yearFilters = [...document.querySelectorAll(".year-filter")];
+      const eventFilter = document.querySelector("#event-filter");
+      const photoGrid = document.querySelector("#photo-grid");
+      photoGrid.replaceChildren();
+      const galleryPhotos = [
+        ["images/6266936513199720030.jpg", "Community gathering", "", "", "Chavara Youth members gathered together at a college event."],
+        ["images/6266936513199720032.jpg", "Community gathering", "", "", "Chavara Youth members gathered together at a college event."],
+        ["images/2025 inaguration.jpg", "YUVA inauguration", "2025", "", "Chavara Youth members gathered for the YUVA inauguration."],
+        ["images/Birthday 2026.jpg", "Birthday celebration", "2026", "2026", "Chavara Youth members celebrating a birthday."],
+        ["images/DSC09220.JPG", "Onam celebration", "2026", "2026-09-06", "Chavara Youth members celebrating Onam together."],
+        ["images/Ethinc Day 2026.jpg", "Ethnic Day", "2026", "2026", "Chavara Youth members celebrating Ethnic Day."],
+        ["images/Freshers Day (1) 2026.JPG", "Freshers' Day", "2026", "2026-08-09", "Chavara Youth members gathered for Freshers' Day."],
+        ["images/IMG-20251218-WA0021.jpg", "Community gathering", "2025", "2025-12-18", "Chavara Youth members gathered together."],
+        ["images/IMG-20251218-WA0047.jpg", "Community gathering", "2025", "2025-12-18", "Chavara Youth members gathered together."],
+        ["images/IMG_0279 (1).JPG", "Freshers' Day", "2026", "2026-08-09", "Chavara Youth members gathered for a college celebration."],
+        ["images/IMG_0749.jpeg", "Community gathering", "", "", "Chavara Youth members gathered for a community event."],
+        ["images/IMG_2208.jpg", "Community activity", "2025", "2025-09-14", "Chavara Youth members taking part in a community activity."],
+        ["images/IMG_2619.jpg", "Community gathering", "2026", "2026-08-09", "Chavara Youth members gathered for a college event."],
+        ["images/IMG_4052.jpg", "Community gathering", "2025", "2025-09-22", "Chavara Youth members gathered for a community event."],
+        ["images/IMG_4184.jpg", "Community gathering", "2026", "2026-01-15", "Chavara Youth members gathered for a community event."],
+        ["images/IMG_5788 (1).jpg", "Community gathering", "2025", "2025-08-10", "Chavara Youth members gathered for a community event."],
+        ["images/IMG_6100.jpg", "Community gathering", "2025", "2025-08-03", "Chavara Youth members gathered for a community event."],
+        ["images/IMG_6111.jpg", "Community gathering", "2025", "2025-08-03", "Chavara Youth members gathered for a community event."],
+        ["images/IMG_6117.jpg", "Community gathering", "2025", "2025-08-03", "Chavara Youth members gathered for a community event."],
+        ["images/IMG_7944.jpg", "Community gathering", "2025", "2025-09-14", "Chavara Youth members gathered for a community event."],
+        ["images/IMG_8889.JPG", "Community gathering", "2025", "2025-12-17", "Chavara Youth members gathered for a community event."],
+        ["images/IMG_8890.JPG", "Community gathering", "2025", "2025-12-17", "Chavara Youth members gathered for a community event."],
+        ["images/IMG_8932.jpg", "Community gathering", "2026", "2026-03-22", "Chavara Youth members gathered for a community event."],
+        ["images/IMG_8951.jpg", "Community gathering", "2026", "2026-03-22", "Chavara Youth members gathered for a community event."],
+        ["images/IMG_8959.jpg", "Community gathering", "2026", "2026-03-22", "Chavara Youth members gathered for a community event."],
+        ["images/Onam (1).JPG", "Onam celebration", "2026", "2026-09-06", "Chavara Youth members celebrating Onam together."],
+        ["images/Tour%20(1)2026.JPG", "Community tour", "2026", "2026-03-14", "Chavara Youth members on a community tour."],
+        ["images/Tour%20(2)%202026.jpg", "Community tour", "2026", "2026-03-14", "Chavara Youth members on a community tour."],
+        ["images/YUVA 2025.jpeg", "YUVA festival", "2025", "2025-04-05", "Chavara Youth members at the YUVA festival."],
+        ["images/_MG_7835.JPG", "Community gathering", "2025", "2025-11-16", "Chavara Youth members gathered for a community event."],
+        ["images/IMG_2328.jpg", "Shalom Ashram visit", "", "", "Chavara Youth members visiting Shalom Ashram."],
+        ["images/IMG_4922.JPG", "Community fellowship", "", "", "Chavara Youth community gathered at Kristu Jayanti Deemed to be University."],
+        ["images/6266936513199720032.jpg", "Youth community", "", "", "Chavara Youth group gathered together at Kristu Jayanti Deemed to be University."],
+        ["images/DSC_6057-gallery.jpg", "Community celebration", "", "", "Chavara Youth members celebrating together at a college event."],
+        ["images/inaguration.JPG", "Inauguration", "", "", "Chavara Youth inauguration event."],
+        ["images/Br%20.%20Tony%20Birthday.jpeg", "Birthday celebration", "", "", "Chavara Youth members gathered for a birthday celebration."],
+        ["images/DSC_6057.JPG", "Community celebration", "", "", "Chavara Youth members celebrating together."],
+        ["images/farewell%202025.jpg", "Farewell celebration", "", "", "Chavara Youth members gathered for a farewell celebration."],
+        ["images/farewell.JPG", "Farewell celebration", "", "", "Chavara Youth members gathered for a farewell celebration."],
+        ["images/2023/WhatsApp%20Image%202026-11-15%20at%2012.19.01%20PM.jpeg", "Community gathering", "2023", "", "Chavara Youth members gathered together for a community event."],
+        ["images/2023/WhatsApp%20Image%202026-11-15%20at%2012.19.10%20PM.jpeg", "Community gathering", "2023", "", "Chavara Youth members gathered together for a community event."],
+        ["images/2023/WhatsApp%20Image%202026-11-15%20at%2012.19.11%20PM.jpeg", "Community gathering", "2023", "", "Chavara Youth members gathered together for a community event."],
+        ["images/2023/WhatsApp%20Image%202026-11-15%20at%2012.19.12%20PM%20(1).jpeg", "Community gathering", "2023", "", "Chavara Youth members gathered together for a community event."],
+        ["images/2023/WhatsApp%20Image%202026-11-15%20at%2012.19.12%20PM%20(2).jpeg", "Community gathering", "2023", "", "Chavara Youth members gathered together for a community event."],
+        ["images/2023/WhatsApp%20Image%202026-11-15%20at%2012.19.12%20PM.jpeg", "Community gathering", "2023", "", "Chavara Youth members gathered together for a community event."],
+        ["images/2023/WhatsApp%20Image%202026-11-15%20at%2012.19.13%20PM.jpeg", "Community gathering", "2023", "", "Chavara Youth members gathered together for a community event."],
+        ["images/2023/WhatsApp%20Image%202026-11-15%20at%2012.19.14%20PM%20(1).jpeg", "Community gathering", "2023", "", "Chavara Youth members gathered together for a community event."],
+        ["images/2023/WhatsApp%20Image%202026-11-15%20at%2012.19.14%20PM%20(2).jpeg", "Community gathering", "2023", "", "Chavara Youth members gathered together for a community event."],
+        ["images/2023/WhatsApp%20Image%202026-11-15%20at%2012.19.14%20PM%20(3).jpeg", "Community gathering", "2023", "", "Chavara Youth members gathered together for a community event."],
+        ["images/2023/WhatsApp%20Image%202026-11-15%20at%2012.19.14%20PM.jpeg", "Community gathering", "2023", "", "Chavara Youth members gathered together for a community event."],
+        ["images/2023/WhatsApp%20Image%202026-11-25%20at%208.13.57%20PM%20(1).jpeg", "Community gathering", "2023", "", "Chavara Youth members gathered together for a community event."],
+        ["images/2023/WhatsApp%20Image%202026-11-25%20at%208.13.57%20PM.jpeg", "Community gathering", "2023", "", "Chavara Youth members gathered together for a community event."],
+        ["images/2023/WhatsApp%20Image%202026-11-25%20at%208.13.58%20PM.jpeg", "Community gathering", "2023", "", "Chavara Youth members gathered together for a community event."],
+        ["images/2023/WhatsApp%20Image%202026-11-25%20at%208.13.59%20PM%20(1).jpeg", "Community gathering", "2023", "", "Chavara Youth members gathered together for a community event."],
+        ["images/2023/WhatsApp%20Image%202026-11-25%20at%208.13.59%20PM.jpeg", "Community gathering", "2023", "", "Chavara Youth members gathered together for a community event."],
+      ];
+
+      galleryPhotos.sort((first, second) => Number(second[2] || 0) - Number(first[2] || 0));
+      galleryPhotos.forEach(([src, event, year, date, alt]) => {
+        const card = document.createElement("button");
+        card.className = "photo-card";
+        card.type = "button";
+        card.dataset.event = event;
+        card.dataset.year = year;
+        card.dataset.fullImage = src;
+        card.dataset.date = date || "Date not provided";
+        card.setAttribute("aria-label", `Open photo: ${event}${year ? `, ${year}` : ""}`);
+
+        const image = document.createElement("img");
+        image.src = src;
+        image.alt = alt;
+        image.loading = "lazy";
+        image.addEventListener("error", () => {
+          card.dataset.imageError = "true";
+          updateGallery();
+        }, { once: true });
+
+        card.append(image);
+        photoGrid.append(card);
+      });
+
+      const photoCards = [...document.querySelectorAll(".photo-card")];
+      const emptyState = document.querySelector("#empty-state");
+      const archiveNote = document.querySelector("#archive-note");
+      const loadMoreButton = document.querySelector("#load-more");
+      const lightbox = document.querySelector("#lightbox");
+      const lightboxImage = document.querySelector("#lightbox-image");
+      const lightboxDate = document.querySelector("#lightbox-date");
+      const lightboxCount = document.querySelector("#lightbox-count");
+      let selectedYear = "all";
+      let visibleLimit = 6;
+      let activePhotoIndex = 0;
+      let touchStartX = 0;
+
+      const events = [...new Set(photoCards.map((card) => card.dataset.event))].sort((a, b) => a.localeCompare(b));
+      events.forEach((name) => {
+        const option = document.createElement("option");
+        option.value = name;
+        option.textContent = name;
+        eventFilter.append(option);
+      });
+
+      function filteredCards() {
+        return photoCards.filter((card) => {
+          if (card.dataset.imageError === "true") return false;
+          const matchesYear = selectedYear === "all" ||
+            (selectedYear === "unknown" && !card.dataset.year) ||
+            card.dataset.year === selectedYear;
+          const matchesEvent = eventFilter.value === "all" || card.dataset.event === eventFilter.value;
+          return matchesYear && matchesEvent;
+        });
+      }
+
+      function updateGallery() {
+        const filtered = filteredCards();
+        photoCards.forEach((card) => {
+          const index = filtered.indexOf(card);
+          card.hidden = index === -1 || index >= visibleLimit;
+        });
+        emptyState.hidden = filtered.length !== 0;
+        loadMoreButton.hidden = filtered.length <= visibleLimit;
+        archiveNote.hidden = selectedYear !== "all" && selectedYear !== "unknown";
+      }
+
+      yearFilters.forEach((button) => {
+        button.addEventListener("click", () => {
+          selectedYear = button.dataset.year;
+          yearFilters.forEach((filter) => filter.setAttribute("aria-pressed", String(filter === button)));
+          visibleLimit = 6;
+          updateGallery();
+        });
+      });
+
+      eventFilter.addEventListener("change", () => {
+        visibleLimit = 6;
+        updateGallery();
+      });
+
+      loadMoreButton.addEventListener("click", () => {
+        visibleLimit += 6;
+        updateGallery();
+      });
+
+      function openPhoto(index) {
+        const filtered = filteredCards();
+        if (filtered.length === 0) return;
+        activePhotoIndex = (index + filtered.length) % filtered.length;
+        const card = filtered[activePhotoIndex];
+        lightboxImage.src = card.dataset.fullImage;
+        lightboxImage.alt = card.querySelector("img").alt;
+        lightboxDate.textContent = card.dataset.date || "Date not provided";
+        lightboxCount.textContent = `${activePhotoIndex + 1} / ${filtered.length}`;
+        lightbox.showModal();
+      }
+
+      photoCards.forEach((card) => {
+        card.addEventListener("click", () => openPhoto(filteredCards().indexOf(card)));
+      });
+
+      document.querySelector("#lightbox-previous").addEventListener("click", () => openPhoto(activePhotoIndex - 1));
+      document.querySelector("#lightbox-next").addEventListener("click", () => openPhoto(activePhotoIndex + 1));
+      document.querySelector("#lightbox-side-previous").addEventListener("click", () => openPhoto(activePhotoIndex - 1));
+      document.querySelector("#lightbox-side-next").addEventListener("click", () => openPhoto(activePhotoIndex + 1));
+      document.querySelector("#lightbox-close").addEventListener("click", () => lightbox.close());
+      lightbox.addEventListener("click", (event) => {
+        if (event.target === lightbox) lightbox.close();
+      });
+
+      document.querySelector("#lightbox-swipe-area").addEventListener("touchstart", (event) => {
+        touchStartX = event.changedTouches[0].clientX;
+      }, { passive: true });
+
+      document.querySelector("#lightbox-swipe-area").addEventListener("touchend", (event) => {
+        const distance = event.changedTouches[0].clientX - touchStartX;
+        if (Math.abs(distance) < 55) return;
+        openPhoto(activePhotoIndex + (distance < 0 ? 1 : -1));
+      }, { passive: true });
+
+      document.addEventListener("keydown", (event) => {
+        if (!lightbox.open) return;
+        if (event.key === "ArrowRight") openPhoto(activePhotoIndex + 1);
+        if (event.key === "ArrowLeft") openPhoto(activePhotoIndex - 1);
+        if (event.key === "Escape") lightbox.close();
+      });
+
+      menuToggle.addEventListener("click", () => {
+        const isOpen = menuToggle.getAttribute("aria-expanded") === "true";
+        menuToggle.setAttribute("aria-expanded", String(!isOpen));
+        menuToggle.setAttribute("aria-label", isOpen ? "Open menu" : "Close menu");
+        menuToggle.innerHTML = `<svg class="icon" aria-hidden="true"><use href="${isOpen ? "#icon-menu" : "#icon-close"}" /></svg>`;
+        navigation.classList.toggle("is-open", !isOpen);
+      });
+
+      navigation.addEventListener("click", (event) => {
+        if (event.target.closest("a")) {
+          navigation.classList.remove("is-open");
+          menuToggle.setAttribute("aria-expanded", "false");
+          menuToggle.setAttribute("aria-label", "Open menu");
+          menuToggle.innerHTML = '<svg class="icon" aria-hidden="true"><use href="#icon-menu" /></svg>';
+        }
+      });
+
+      updateGallery();
+    </script>
+  </body>
+</html>
